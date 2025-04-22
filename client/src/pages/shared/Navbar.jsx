@@ -14,11 +14,11 @@ const Navbar = () => {
             alt="Logo"
             className="h-8"
           />
-            <span className=" font-bold ml-2">Le CelesteBD</span>
+            <span className="text-white font-bold ml-2">Le CelesteBD</span>
         </Link>
 
         {/* Navigation Links */}
-        <ul className="hidden md:flex space-x-6 uppercase text-sm font-medium ">
+        <ul className="hidden md:flex space-x-6 uppercase text-sm font-medium text-white">
           <li><a href="#" className="">Home</a></li>
           <li><a href="#" className="">Pages</a></li>
           <li><a href="#" className="">Elements</a></li>
@@ -28,7 +28,7 @@ const Navbar = () => {
         </ul>
 
         {/* Right Side Icons */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 text-white">
           <div className="relative">
             <ShoppingCart className="h-5 w-5 " />
             <span className="absolute -top-2 -right-2 bg-gray-300 text-xs rounded-full px-1">0</span>

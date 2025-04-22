@@ -1,0 +1,73 @@
+[
+    {
+      "_id": "643010e0f5a7e52ce1e8fa65",
+      "name": "Jane Doe",
+      "image": "https://randomuser.me/api/portraits/women/44.jpg",
+      "details": "Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+      "rating": 3
+    },
+    {
+      "_id": "643010f9f5a7e52ce1e8fa66",
+      "name": "John Doe",
+      "image": "https://randomuser.me/api/portraits/men/32.jpg",
+      "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
+      "rating": 2
+    },
+    {
+      "_id": "6430110af5a7e52ce1e8fa67",
+      "name": "MJ Doe",
+      "image": "https://randomuser.me/api/portraits/men/75.jpg",
+      "details": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
+      "rating": 5
+    },
+    {
+      "_id": "64301123f5a7e52ce1e8fa68",
+      "name": "Sarah Smith",
+      "image": "https://randomuser.me/api/portraits/women/65.jpg",
+      "details": "I found the product to be incredibly useful and easy to use. The interface is intuitive, and it has all the features I need. Highly recommend it!",
+      "rating": 4
+    },
+    {
+      "_id": "6430113af5a7e52ce1e8fa69",
+      "name": "Robert Johnson",
+      "image": "https://randomuser.me/api/portraits/men/41.jpg",
+      "details": "This is by far the best service I have ever used. The customer support is outstanding, and the product itself is top-notch. I couldn't be happier!",
+      "rating": 5
+    },
+    {
+      "_id": "6430114cf5a7e52ce1e8fa70",
+      "name": "Emily Clarke",
+      "image": "https://randomuser.me/api/portraits/women/52.jpg",
+      "details": "The whole experience was smooth and enjoyable. I was able to find what I needed quickly. Great design and usability!",
+      "rating": 4
+    },
+    {
+      "_id": "6430115df5a7e52ce1e8fa71",
+      "name": "Michael Lee",
+      "image": "https://randomuser.me/api/portraits/men/19.jpg",
+      "details": "Excellent service and very friendly staff. I love how everything is streamlined. Will definitely recommend!",
+      "rating": 5
+    },
+    {
+      "_id": "6430116af5a7e52ce1e8fa72",
+      "name": "Linda Brown",
+      "image": "https://randomuser.me/api/portraits/women/33.jpg",
+      "details": "I appreciated the attention to detail and how quick everything was. The quality exceeded my expectations.",
+      "rating": 4
+    },
+    {
+      "_id": "6430117ff5a7e52ce1e8fa73",
+      "name": "Daniel Wilson",
+      "image": "https://randomuser.me/api/portraits/men/50.jpg",
+      "details": "Great platform and customer support. I ran into an issue, and they resolved it within minutes. Very happy.",
+      "rating": 5
+    },
+    {
+      "_id": "64301190f5a7e52ce1e8fa74",
+      "name": "Sophia Martinez",
+      "image": "https://randomuser.me/api/portraits/women/23.jpg",
+      "details": "I love the clean and professional look of the site. It really makes a difference when browsing.",
+      "rating": 3
+    }
+  ]
+  

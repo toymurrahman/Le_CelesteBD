@@ -30,7 +30,7 @@ export default function Carousel() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper "
       >
         <SwiperSlide> <Slide image={img1} text=''  /></SwiperSlide>
         <SwiperSlide> <Slide image={img2} text=''  /> </SwiperSlide>

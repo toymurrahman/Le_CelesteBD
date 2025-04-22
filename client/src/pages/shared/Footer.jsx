@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Footer = () => {
   return (
     
@@ -7,12 +8,12 @@ const Footer = () => {
         <div className="container p-6 mx-auto">
           <div className="lg:flex">
             <div className="w-full -mx-6 lg:w-2/5">
-              <div className="px-6">
+              <div className="px-6 ">
                 <a href="#">
                   <img
                     className="w-auto h-7"
-                    src="https://merakiui.com/images/full-logo.svg"
-                    alt="ss"
+                    src="../../../public/logo.png"
+                    alt="LC"
                   />
                 </a>
 
