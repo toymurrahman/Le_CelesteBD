@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/shared/SectionTitle";
-import MenuCard from "../MenuCard";
+import MenuCard from "../Menu/MenuCard";
+import useMenu from "../../hooks/useMenu";
+import LoadinPan from "../../components/shared/LoadinPan";
+
 
 const Popularmenu = () => {
-  const [menu, setMenu] = useState([]);
+  const [menu,loading] =useMenu();
+  const polular = menu.filter((item) => item.category === "popular");
 
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const popularItems = data.filter((item) => item.category === "popular");
-        setMenu(popularItems);
-      });
-  });
+  if(loading) return <LoadinPan/>;
 
   return (
     <section>
       <SectionTitle heading="Popular Menu" subHeading="-From Our Menu-" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mx-auto mb-10">
-        {menu.map((item) => (
+        {polular.map((item) => (
           <MenuCard key={item._id} item={item} />
         ))}
       </div>

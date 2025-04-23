@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const MenuCard = ({item}) => {
     return (
    <section>
@@ -9,10 +10,10 @@ const MenuCard = ({item}) => {
             <div>
                 <h3 className="text-lg font-semibold">{item.name}</h3>
                 <hr />
-                <p className="text-gray-500 w-4/5">{item.recipe}</p>
+                <p className="text-gray-500 w-4/5">{item.recipe.split(" ").slice(0, 6).join(" ")} . . .</p>
             </div>
         </div>
-        <span className="text-xl font-bold">${item.price}</span>
+        <span className="text-xl font-bold -ml-10">${item.price}</span>
     </div>  
    </section>
     );

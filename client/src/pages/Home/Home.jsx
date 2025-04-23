@@ -3,25 +3,29 @@ import Carousel from "../../components/Carousel";
 import Story from "../../components/Story";
 import Cheif from "../../components/Cheif";
 import FoodCarousel from "../../components/FoodCarousel";
-import Popularmenu from "../Home/Popularmenu";
-import FreshItems from "../Home/FreshItems";
-import TopofMenu from "../Home/TopofMenu";
-import Testimonials from "../Home/Testimonials";
+import Popularmenu from "./Popularmenu";
+import FreshItems from "./FreshItems";
+import TopofMenu from "./TopofMenu";
+import Testimonials from "./Testimonials";
+import SpecialRecipe from "./SpecialRecipe";
+
 
 const Home = () => {
   return (
-    <div>
+   <section>
+
+     <div className="flex flex-col gap-5">
       <Carousel />
       <FoodCarousel />
       <Popularmenu />
       <FreshItems />
       <Testimonials />
       <Cheif />
-            <div className="text-center m-10  ">
-                 <Story />
-            </div>
-       <TopofMenu/>     
+      <SpecialRecipe />
+      <TopofMenu />
+      <Story />
     </div>
+   </section>
   );
 };
 

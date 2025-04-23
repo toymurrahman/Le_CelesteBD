@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import img1 from '../assets/foodCarousel/port-fi-1.jpg'
 import img2 from '../assets/foodCarousel/port-fi-2.jpg'
 import img3 from '../assets/foodCarousel/port-fi-3.jpg'
@@ -103,16 +104,23 @@ const FoodCarousel = () => {
   const handleMouseLeave = () => {
     swiperRef.current?.autoplay.start();
   };
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
   return (
     <div className="relative">
         <SectionTitle heading={'Features items'} subHeading={'TASTY AND CRUNCY'}  />
       <Swiper
         modules={[Autoplay, Navigation]}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={4}
         loop={true}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
-        navigation={true}
+        autoplay={{ delay: 1000, disableOnInteraction: false }}
+        // navigation={false}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
@@ -140,6 +148,18 @@ const FoodCarousel = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <button
+        onClick={handlePrev}
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black bg-yellow-400 hover:bg-yellow-500 p-2 rounded-full"
+      >
+        <ChevronLeft size={20} />
+      </button>
+      <button
+        onClick={handleNext}
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-black bg-yellow-400 hover:bg-yellow-500 p-2 rounded-full"
+      >
+        <ChevronRight size={20} />
+      </button>
     </div>
   );
 };

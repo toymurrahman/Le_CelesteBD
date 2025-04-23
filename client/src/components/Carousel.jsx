@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import img1 from '../assets/image/main-home-slide1.jpg';
-import img2 from '../assets/image/main-home-slide2n.jpg';
-import img3 from '../assets/image/main-home-slide3.jpg';
+import img1 from '../assets/Home-carousel/main-home-slide1.jpg';
+import img2 from '../assets/Home-carousel/main-home-slide2n.jpg';
+import img3 from '../assets/Home-carousel/main-home-slide3.jpg';
 
 
 // import required modules
