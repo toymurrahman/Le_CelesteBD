@@ -10,6 +10,7 @@ import useMenu from "../../hooks/useMenu";
 import SectionTitle from "../../components/shared/SectionTitle";
 import MenuCategories from "./MenuCategories";
 import CoverParallax from "../../components/shared/CoverParallax";
+import TakeAway from "../shared/TakeAway";
 
 const Menu = () => {
   const [menu] = useMenu();
@@ -83,6 +84,8 @@ const Menu = () => {
         ></CoverParallax>
         <MenuCategories items={soup}></MenuCategories>
       </div>
+      {/* take away */}
+      <TakeAway/>
     </section>
   );
 };

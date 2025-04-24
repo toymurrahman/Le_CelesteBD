@@ -4,14 +4,14 @@ import chefImage from "../assets/image/cheif.jpg";
 const Cheif = () => {
   return (
     <div>
-      <section className=" py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center justify-between">
+      <section className="bg-gray-50 py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center justify-between">
         {/* Text Content */}
         <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
           <p className="uppercase text-sm tracking-widest mb-2">
             PASSION & PRECISION
           </p>
           <h2 className="text-4xl font-bold  mb-4">Meet Our Chef</h2>
-          <p className="text-gray-600 mb-6">
+          <p className=" mb-6">
             With years of culinary experience and a passion for perfection, our
             chef brings creativity and excellence to every dish. From selecting
             the freshest ingredients to plating with finesse, each meal is a

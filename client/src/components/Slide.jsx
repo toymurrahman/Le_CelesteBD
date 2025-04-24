@@ -34,6 +34,7 @@ const Slide = ({ image, text }) => {
             </span>
             <span className="absolute inset-0 border-2 border-white rounded-full"></span>
           </Link>
+       
         </div>
       </div>
     </div>

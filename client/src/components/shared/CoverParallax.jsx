@@ -6,7 +6,7 @@ const CoverParallax = ({parallaxImg,categories,description}) => {
         className="relative bg-fixed bg-cover bg-center mb-5 text-white py-20 px-6"
         style={{ backgroundImage: `url(${parallaxImg})` }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative p-6 max-w-6xl bg-black bg-opacity-40 mx-auto text-center">
           <h2 className="text-3xl uppercase lg:text-5xl font-bold mb-10  inline-block border-b py-3 px-6">
             {categories}
