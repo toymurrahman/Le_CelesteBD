@@ -1,5 +1,7 @@
 import React from "react";
 import chefImage from "../assets/image/cheif.jpg";
+import AllButtons from "./shared/AllButtons";
+import { Link } from "react-router-dom";
 
 const Cheif = () => {
   return (
@@ -18,14 +20,12 @@ const Cheif = () => {
             reflection of dedication to taste and quality.
           </p>
 
-          <div>
-            <button className="group relative h-12 overflow-hidden rounded-md bg-gray-100 px-6 transition duration-300">
-              <span className="relative z-10 text-gray-800 transition group-hover:text-white font-medium">
-                Explore Menu
-              </span>
-              <div className="absolute inset-0 h-full w-0 bg-slate-700 transition-all duration-300 group-hover:w-full z-0" />
-            </button>
-          </div>
+          <Link to='/menu'>
+            <AllButtons
+              variant="common-button"
+              text="Read More"
+            />
+          </Link>
         </div>
 
         {/* Chef Image */}

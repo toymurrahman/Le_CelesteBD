@@ -7,19 +7,21 @@ import { useState } from "react";
 import useMenu from "../../hooks/useMenu";
 import LoadinPan from "../../components/shared/LoadinPan";
 import OrderTab from "./OrderTab";
+import { useParams } from "react-router-dom";
 
 const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
 
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
   const [menu, loading] = useMenu();
-
-  if (loading) return <LoadinPan />;
-
+  const {category} = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+  
   const categorizedItems = categories.map((cat) =>
     menu.filter((item) => item.category === cat)
-  );
+);
 
+if (loading) return <LoadinPan />;
   return (
     <section>
       <Helmet>

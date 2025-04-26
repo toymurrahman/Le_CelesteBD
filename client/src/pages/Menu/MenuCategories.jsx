@@ -1,7 +1,10 @@
 
+import { Link } from "react-router-dom";
+import AllButtons from "../../components/shared/AllButtons";
 import MenuCard from "./MenuCard";
 
-const MenuCategories = ({ items }) => {
+const MenuCategories = ({ items, category }) => {
+  console.log(category);
   return (
    <section>
    
@@ -10,6 +13,11 @@ const MenuCategories = ({ items }) => {
         <MenuCard key={item._id} item={item} />
       ))}
     </div>
+    <div className="text-center -mt-2 mb-10">
+          <Link to={`/order/${category}`} >
+            <AllButtons variant="common-button" text="Order Now" />
+          </Link>
+        </div>
    </section>
   );
 };

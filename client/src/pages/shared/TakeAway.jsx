@@ -2,6 +2,7 @@ import React from 'react';
 import bgImg from '../../assets/Menu/take-away-bg.jpg'
 import img from '../../assets/Menu/take-away.png'
 import { Link } from 'react-router-dom';
+import AllButtons from '../../components/shared/AllButtons';
 
 const TakeAway = () => {
     return (
@@ -35,6 +36,7 @@ const TakeAway = () => {
               </span>
               <span className="absolute inset-0 border-2 border-black rounded-full"></span>
             </Link>
+           
   
             </div>
             <img
