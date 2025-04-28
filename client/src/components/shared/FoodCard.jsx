@@ -1,4 +1,5 @@
 import React from "react";
+import AllButtons from "./AllButtons";
 
 const FoodCard = ({ item }) => {
   return (
@@ -13,7 +14,6 @@ const FoodCard = ({ item }) => {
           ${item.price}
         </p>
       </figure>
-    
 
       <div className="card-body rounded-md">
         <p>
@@ -23,9 +23,12 @@ const FoodCard = ({ item }) => {
         <h2 className="card-title">{item.title}</h2>
         <p>{item.description}</p>
         <div className="card-actions justify-start">
-          <div className="badge badge-outline">
-            {" "}
-            {item.totalComments} COMMENT{" "}
+          <div className="mt-2">
+            <AllButtons
+              variant="common-button"
+              text="Add To Cart"
+              className="uppercase"
+            ></AllButtons>
           </div>
         </div>
       </div>

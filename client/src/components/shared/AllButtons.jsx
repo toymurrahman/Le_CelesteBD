@@ -10,8 +10,8 @@ const AllButtons = ({
   const isBannar = variant === "bannar-button";
 
   const baseClass = isBannar
-    ? "relative inline-flex items-center justify-start px-5 py-3 overflow-hidden font-bold rounded-full group"
-    : "group relative h-12 overflow-hidden rounded-md bg-gray-100 px-6 transition duration-300";
+    ? "relative inline-flex  items-center justify-start px-4 py-2 overflow-hidden font-bold rounded-full group"
+    : "group relative  h-10 overflow-hidden rounded-md bg-gray-100 px-4 transition duration-300";
 
   const mergedClass = clsx(baseClass, className);
 

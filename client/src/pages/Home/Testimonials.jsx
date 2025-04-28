@@ -14,7 +14,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("reviews.json")
+    fetch("http://localhost:5000/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -55,8 +55,12 @@ const Testimonials = () => {
                   alt={review.name}
                   className="w-24 h-24 rounded-full mb-4"
                 />
-                <Rating style={{ maxWidth: 180 }} value={review.rating} readOnly />
-                
+                <Rating
+                  style={{ maxWidth: 180 }}
+                  value={review.rating}
+                  readOnly
+                />
+
                 <p className="text-lg italic mb-4">{review.details}</p>
                 <h3 className="text-xl font-bold">{review.name}</h3>
               </div>
