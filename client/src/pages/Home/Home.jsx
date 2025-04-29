@@ -9,23 +9,21 @@ import TopofMenu from "./TopofMenu";
 import Testimonials from "./Testimonials";
 import SpecialRecipe from "./SpecialRecipe";
 
-
 const Home = () => {
   return (
-   <section>
-
-     <div className="flex flex-col gap-5">
-      <Carousel />
-      <FoodCarousel />
-      <Popularmenu />
-      <FreshItems />
-      <Testimonials />
-      <Cheif />
-      <SpecialRecipe />
-      <TopofMenu />
-      <Story />
-    </div>
-   </section>
+    <section>
+      <div className="flex flex-col gap-5">
+        {/* <Carousel /> */}
+        <FoodCarousel />
+        <Popularmenu />
+        <FreshItems />
+        <Testimonials />
+        <Cheif />
+        <SpecialRecipe />
+        <TopofMenu />
+        <Story />
+      </div>
+    </section>
   );
 };
 

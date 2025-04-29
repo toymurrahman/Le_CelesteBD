@@ -60,8 +60,8 @@ const OrderTab = ({ items }) => {
           disabled={activeIndex === 0}
           className={`px-4 py-2 rounded ${
             activeIndex === 0
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-gray-400 hover:bg-gray-500"
+              ? "bg-gray-100 cursor-not-allowed"
+              : "bg-gray-300 hover:bg-gray-500"
           }`}
         >
           Prev
@@ -75,7 +75,7 @@ const OrderTab = ({ items }) => {
             disabled={index === activeIndex}
             className={`px-4 py-2 rounded ${
               index === activeIndex
-                ? "bg-blue-500 text-white cursor-not-allowed"
+                ? "bg-gray-500 text-white cursor-not-allowed"
                 : "bg-gray-200 hover:bg-gray-300"
             }`}
           >
@@ -89,8 +89,8 @@ const OrderTab = ({ items }) => {
           disabled={activeIndex === slides.length - 1}
           className={`px-4 py-2 rounded ${
             activeIndex === slides.length - 1
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-gray-400 hover:bg-gray-500"
+              ? "bg-gray-100 cursor-not-allowed"
+              : "bg-gray-300 hover:bg-gray-500"
           }`}
         >
           Next
