@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
 import Order from "../pages/Order/Order";
 import { LogIn } from "lucide-react";
+import Login from "../pages/Auth/Login";
 
 export const router = createBrowserRouter([
   {
@@ -18,10 +19,7 @@ export const router = createBrowserRouter([
         path: "/about",
         element: <h1>About</h1>,
       },
-      {
-        path: "/login",
-        element: <LogIn />,
-      },
+
       {
         path: "/menu",
         element: <Menu />,
@@ -35,5 +33,9 @@ export const router = createBrowserRouter([
         element: <Order />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);

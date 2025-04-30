@@ -4,95 +4,95 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import img1 from '../assets/foodCarousel/port-fi-1.jpg'
-import img2 from '../assets/foodCarousel/port-fi-2.jpg'
-import img3 from '../assets/foodCarousel/port-fi-3.jpg'
-import img4 from '../assets/foodCarousel/port-fi-4.jpg'
-import img5 from '../assets/foodCarousel/port-fi-5.jpg'
-import img6 from '../assets/foodCarousel/port-fi-6.jpg'
-import img7 from '../assets/foodCarousel/port-fi-7.jpg'
-import img8 from '../assets/foodCarousel/port-fi-8.jpg'
-import img9 from '../assets/foodCarousel/port-fi-9.jpg'
-import img10 from '../assets/foodCarousel/port-fi-10.jpg'
-import img11 from '../assets/foodCarousel/port-fi-11.jpg'
-import img12 from '../assets/foodCarousel/port-fi-12.jpg'
-import img13 from '../assets/foodCarousel/port-fi-13.jpg'
-import img14 from '../assets/foodCarousel/port-fi-14.jpg'
+import img1 from "../assets/foodCarousel/port-fi-1.jpg";
+import img2 from "../assets/foodCarousel/port-fi-2.jpg";
+import img3 from "../assets/foodCarousel/port-fi-3.jpg";
+import img4 from "../assets/foodCarousel/port-fi-4.jpg";
+import img5 from "../assets/foodCarousel/port-fi-5.jpg";
+import img6 from "../assets/foodCarousel/port-fi-6.jpg";
+import img7 from "../assets/foodCarousel/port-fi-7.jpg";
+import img8 from "../assets/foodCarousel/port-fi-8.jpg";
+import img9 from "../assets/foodCarousel/port-fi-9.jpg";
+import img10 from "../assets/foodCarousel/port-fi-10.jpg";
+import img11 from "../assets/foodCarousel/port-fi-11.jpg";
+import img12 from "../assets/foodCarousel/port-fi-12.jpg";
+import img13 from "../assets/foodCarousel/port-fi-13.jpg";
+import img14 from "../assets/foodCarousel/port-fi-14.jpg";
 
-import SectionTitle from './shared/SectionTitle';
+import SectionTitle from "./shared/SectionTitle";
 
 const foodItems = [
-    {
-      src: img1,
-      title: "Chicken Saslick",
-      category: "CHICKEN",
-    },
-    {
-      src: img2,
-      title: "Crispy Burger",
-      category: "Fast Food",
-    },
-    {
-      src: img3,
-      title: "Healthy Snacks",
-      category: "Dessert",
-    },
-    {
-      src: img4,
-      title: "Healthy Sweet Bites",
-      category: "Dessert",
-    },
-    {
-      src: img5,
-      title: "Classic Pizza",
-      category: "PIZZA",
-    },
-    {
-      src: img6,
-      title: "Cheesy Delight",
-      category: "PIZZA",
-    },
-    {
-      src: img7,
-      title: "Smoked Flavors",
-      category: "BBQ",
-    },
-    {
-      src: img8,
-      title: "Gourmet Mix",
-      category: "PLATTER",
-    },
-    {
-      src: img9,
-      title: "Veggie Bites",
-      category: "VEGETARIAN",
-    },
-    {
-      src: img10,
-      title: "Classic Delight",
-      category: "PIZZA",
-    },
-    {
-      src: img11,
-      title: "Spicy Chicken",
-      category: "CHICKEN",
-    },
-    {
-      src: img12,
-      title: "BBQ Feast",
-      category: "BBQ",
-    },
-    {
-      src: img13,
-      title: "Veggie Platter",
-      category: "VEGETARIAN",
-    },
-    {
-      src: img14,
-      title: "Sweet Treats",
-      category: "Dessert",
-    },
-  ];
+  {
+    src: img1,
+    title: "Chicken Saslick",
+    category: "CHICKEN",
+  },
+  {
+    src: img2,
+    title: "Crispy Burger",
+    category: "Fast Food",
+  },
+  {
+    src: img3,
+    title: "Healthy Snacks",
+    category: "Dessert",
+  },
+  {
+    src: img4,
+    title: "Healthy Sweet Bites",
+    category: "Dessert",
+  },
+  {
+    src: img5,
+    title: "Classic Pizza",
+    category: "PIZZA",
+  },
+  {
+    src: img6,
+    title: "Cheesy Delight",
+    category: "PIZZA",
+  },
+  {
+    src: img7,
+    title: "Smoked Flavors",
+    category: "BBQ",
+  },
+  {
+    src: img8,
+    title: "Gourmet Mix",
+    category: "PLATTER",
+  },
+  {
+    src: img9,
+    title: "Veggie Bites",
+    category: "VEGETARIAN",
+  },
+  {
+    src: img10,
+    title: "Classic Delight",
+    category: "PIZZA",
+  },
+  {
+    src: img11,
+    title: "Spicy Chicken",
+    category: "CHICKEN",
+  },
+  {
+    src: img12,
+    title: "BBQ Feast",
+    category: "BBQ",
+  },
+  {
+    src: img13,
+    title: "Veggie Platter",
+    category: "VEGETARIAN",
+  },
+  {
+    src: img14,
+    title: "Sweet Treats",
+    category: "Dessert",
+  },
+];
 
 const FoodCarousel = () => {
   const swiperRef = useRef(null);
@@ -113,18 +113,33 @@ const FoodCarousel = () => {
   };
   return (
     <div className="relative">
-        <SectionTitle heading={'Features items'} subHeading={'TASTY AND CRUNCY'}  />
+      <SectionTitle
+        heading={"Features items"}
+        subHeading={"TASTY AND CRUNCY"}
+      />
       <Swiper
         modules={[Autoplay, Navigation]}
         spaceBetween={20}
-        slidesPerView={4}
         loop={true}
         autoplay={{ delay: 1000, disableOnInteraction: false }}
-        // navigation={false}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
         className="w-full"
+        breakpoints={{
+          0: {
+            slidesPerView: 2,
+          },
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+        }}
       >
         {foodItems.map((item, index) => (
           <SwiperSlide key={index}>
