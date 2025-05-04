@@ -11,8 +11,6 @@ import SectionTitle from "../../components/shared/SectionTitle";
 import MenuCategories from "./MenuCategories";
 import CoverParallax from "../../components/shared/CoverParallax";
 import TakeAway from "../shared/TakeAway";
-import AllButtons from "../../components/shared/AllButtons";
-import { Link } from "react-router-dom";
 
 const Menu = () => {
   const [menu] = useMenu();

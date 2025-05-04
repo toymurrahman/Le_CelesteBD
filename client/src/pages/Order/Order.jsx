@@ -25,7 +25,7 @@ if (loading) return <LoadinPan />;
   return (
     <section>
       <Helmet>
-        <title>Le CélesteBD | Order</title>
+        <title>Order | Le CélesteBD </title>
       </Helmet>
 
       {/* Banner */}
