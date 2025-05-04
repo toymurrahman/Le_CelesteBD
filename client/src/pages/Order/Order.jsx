@@ -36,7 +36,7 @@ if (loading) return <LoadinPan />;
       />
 
       {/* Tabs */}
-      <div className=" mt-5">
+      <div className="container mx-auto mt-5">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <div className="flex justify-center overflow-x-auto">
             <TabList className="flex uppercase  gap-2 p-2 min-w-fit sm:min-w-0">

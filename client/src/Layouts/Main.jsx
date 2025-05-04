@@ -1,18 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../pages/shared/Footer";
 import Navbar from "../pages/shared/Navbar";
 import Carousel from "../components/Carousel";
 
 const Main = () => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
   return (
     <div>
       <Navbar />
-      <Carousel />
+      {isHome && <Carousel />}
 
-      <div className="max-w-7xl mx-auto">
+      
         <Outlet />
-      </div>
+     
 
       <Footer />
     </div>

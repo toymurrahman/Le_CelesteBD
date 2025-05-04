@@ -2,37 +2,50 @@ import { Helmet } from "react-helmet-async";
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import AllButtons from "../../components/shared/AllButtons";
 import signupImg from "../../assets/auth/authentication.gif";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
-  const {createUser} = useAuth();
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     createUser(data.email, data.password)
-    .then(res => {
-      const loggedUser = res.user;
-      console.log(loggedUser);
-      reset();
-    })
-    .catch(err => {
-      console.error("Signup error:", err.message);
-    });
+      .then((res) => {
+        const loggedUser = res.user;
+        console.log(loggedUser);
+        updateUserProfile(data.name, data.photoURL)
+        .then(()=>{
+          console.log('Updated');
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Created Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/');
+        })
+        .catch(err => console.log(err))
+        reset();
+      })
+      .catch((err) => {
+        console.error("Signup error:", err.message);
+      });
   };
-  
+
   return (
     <section>
-       <Helmet>
-       <title>Signup | Le CélesteBD</title>
+      <Helmet>
+        <title>Signup | Le CélesteBD</title>
       </Helmet>
       <div className="min-h-screen bg-base-200 flex  items-center justify-center px-4">
         <div className="bg-white shadow-lg rounded-xl p-0 md:p-8 flex flex-col md:flex-row-reverse w-full max-w-4xl overflow-hidden">
@@ -72,6 +85,21 @@ const SignUp = () => {
                 {errors.email && (
                   <span className="text-sm text-red-500 ">
                     Email is required
+                  </span>
+                )}
+              </div>
+              {/* Photo */}
+              <div>
+                <input
+                  type="text"
+                  {...register("photoURL", { required: true })}
+                  placeholder="Photo URL"
+                  className="input input-bordered w-full"
+                  required
+                />
+                {errors.photoURL && (
+                  <span className="text-sm text-red-500 ">
+                    Photo URL is required
                   </span>
                 )}
               </div>

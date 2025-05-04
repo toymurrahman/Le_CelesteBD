@@ -1,5 +1,4 @@
-
-import { createContext, useEffect, useState } from 'react'
+import { createContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -9,80 +8,75 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-} from 'firebase/auth'
-import { app } from '../firebase/firebase.config'
+} from "firebase/auth";
+import { app } from "../firebase/firebase.config";
 // import axios from 'axios'
 
-export const AuthContext = createContext(null)
-const auth = getAuth(app)
-const googleProvider = new GoogleAuthProvider()
+export const AuthContext = createContext(null);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
-    setLoading(true)
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
   const signIn = (email, password) => {
-    setLoading(true)
-    return signInWithEmailAndPassword(auth, email, password)
-  }
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
   const signInWithGoogle = () => {
-    setLoading(true)
-    return signInWithPopup(auth, googleProvider)
-  }
-
-
-
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
-  }
-//   const logOut = async () => {
-//     try {
-//       setLoading(true);
-  
-//       // Optional: call backend to clear cookies
-//       await axios(`${import.meta.env.VITE_API_URL}/logout`, {
-//         withCredentials: true,
-//       });
-  
-//       // Firebase sign out
-//       await signOut(auth);
-  
-//       toast.success("Successfully logged out!");
-//     } catch (error) {
-//       console.error("Logout failed:", error);
-//       toast.error("Failed to log out.");
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  };
+  //   const logOut = async () => {
+  //     try {
+  //       setLoading(true);
 
-//   const updateUserProfile = (name, photo) => {
-//     return updateProfile(auth.currentUser, {
-//       displayName: name,
-//       photoURL: photo,
-//     })
-//   }
+  //       // Optional: call backend to clear cookies
+  //       await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+  //         withCredentials: true,
+  //       });
 
+  //       // Firebase sign out
+  //       await signOut(auth);
 
+  //       toast.success("Successfully logged out!");
+  //     } catch (error) {
+  //       console.error("Logout failed:", error);
+  //       toast.error("Failed to log out.");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
   // onAuthStateChange
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser)
-      setLoading(false)
-    })
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
     return () => {
-      return unsubscribe()
-    }
-  }, [])
+      return unsubscribe();
+    };
+  }, []);
 
   const authInfo = {
     user,
@@ -93,12 +87,12 @@ const AuthProvider = ({ children }) => {
     signIn,
     signInWithGoogle,
     logOut,
-    // updateUserProfile,
-  }
+    updateUserProfile,
+  };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-  )
-}
+  );
+};
 
-export default AuthProvider
+export default AuthProvider;

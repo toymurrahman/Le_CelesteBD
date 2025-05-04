@@ -4,7 +4,6 @@ import AllButtons from "../../components/shared/AllButtons";
 import MenuCard from "./MenuCard";
 
 const MenuCategories = ({ items, category }) => {
-  console.log(category);
   return (
    <section>
    

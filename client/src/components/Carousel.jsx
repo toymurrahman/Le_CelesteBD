@@ -16,7 +16,7 @@ import Slide from './Slide';
 
 export default function Carousel() {
   return (
-    <div className="container   mx-auto  sm:block">
+    <div className="w-full mx-auto sm:block">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -28,7 +28,7 @@ export default function Carousel() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+        navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper "
       >

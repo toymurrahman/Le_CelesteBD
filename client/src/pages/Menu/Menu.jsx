@@ -40,8 +40,9 @@ const Menu = () => {
         ></CoverForAll>
       </div>
 
-      {/* offer section */}
-      <div>
+     <div className="container">
+       {/* offer section */}
+       <div>
         <SectionTitle
           heading={"today's offer"}
           subHeading={"Don't miss"}
@@ -88,6 +89,7 @@ const Menu = () => {
       </div>
       {/* take away */}
       <TakeAway />
+     </div>
     </section>
   );
 };

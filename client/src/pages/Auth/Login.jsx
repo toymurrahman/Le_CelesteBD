@@ -9,13 +9,17 @@ import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import loginImg from "../../assets/auth/authentication.gif";
 import AllButtons from "../../components/shared/AllButtons";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
-
   const { signIn } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(2);
@@ -33,10 +37,13 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     signIn(email, password).then((res) => {
       const user = res.user;
-      console.log(user);
+      Swal.fire({
+        icon: "success",
+        title: "Login Success",
+      });
+      navigate(from, { replace: true });
     });
   };
 

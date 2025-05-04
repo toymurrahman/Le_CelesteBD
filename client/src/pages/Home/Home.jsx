@@ -12,7 +12,7 @@ import SpecialRecipe from "./SpecialRecipe";
 const Home = () => {
   return (
     <section>
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 container">
         {/* <Carousel /> */}
         <FoodCarousel />
         <Popularmenu />
