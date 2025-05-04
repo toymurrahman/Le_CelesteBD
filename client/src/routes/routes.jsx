@@ -5,6 +5,7 @@ import Menu from "../pages/Menu/Menu";
 import Order from "../pages/Order/Order";
 import { LogIn } from "lucide-react";
 import Login from "../pages/Auth/Login";
+import SignUp from './../pages/Auth/SignUp';
 
 export const router = createBrowserRouter([
   {
@@ -37,5 +38,9 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp/>,
   },
 ]);

@@ -4,19 +4,27 @@ const AllButtons = ({
   variant = "common-button",
   text = "Click Me",
   onClick,
-  type = "button",
+  type = "",
   className = "",
+  disable = false, 
 }) => {
   const isBannar = variant === "bannar-button";
 
   const baseClass = isBannar
-    ? "relative inline-flex  items-center justify-start px-4 py-2 overflow-hidden font-bold rounded-full group"
-    : "group relative  h-10 overflow-hidden rounded-md bg-gray-100 px-4 transition duration-300";
+    ? "relative inline-flex items-center justify-start px-4 py-2 overflow-hidden font-bold rounded-full group"
+    : "group relative h-10 overflow-hidden rounded-md bg-gray-100 px-4 transition duration-300";
 
-  const mergedClass = clsx(baseClass, className);
+  const mergedClass = clsx(baseClass, className, {
+    "opacity-50 cursor-not-allowed": disable, 
+  });
 
   return (
-    <button type={type} onClick={onClick} className={mergedClass}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={mergedClass}
+      disabled={disable} 
+    >
       {isBannar ? (
         <>
           <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]" />
@@ -39,6 +47,7 @@ const AllButtons = ({
 };
 
 export default AllButtons;
+
 
 /*
 common btn

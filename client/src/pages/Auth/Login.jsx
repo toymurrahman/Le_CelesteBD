@@ -7,28 +7,47 @@ import {
 import { FaFacebook, FaGoogle, FaGithub } from "react-icons/fa";
 import loginImg from "../../assets/auth/authentication.gif";
 import AllButtons from "../../components/shared/AllButtons";
+import useAuth from "../../hooks/useAuth";
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const captchaRef = useRef(null);
   const [disable, setDisable] = useState(true);
 
+  const {signIn} = useAuth();
+
   useEffect(() => {
-    loadCaptchaEnginge(6); // Generates captcha with 6 chars
+    loadCaptchaEnginge(2);
   }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log("Captcha Valid:", !disable);
+    // Prevent login if captcha is not validated
+    if (disable) {
+      alert("Please validate the CAPTCHA before logging in.");
+      return;
+    }
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log("Email:", email, "Password:", password);
-    // Continue login logic here
+    console.log( email, password);
+    signIn(email,password)
+    .then(res => {
+      const user =res.user;
+      console.log(user);
+    })
   };
 
   const handleCaptchaValidation = () => {
     const userCaptcha = captchaRef.current?.value;
     const isValid = validateCaptcha(userCaptcha);
-    setDisable(!isValid); // Disable login button if captcha is wrong
+    setDisable(!isValid);
+
+    if (!isValid) {
+      alert("Invalid CAPTCHA. Please try again.");
+    }
   };
 
   return (
@@ -85,8 +104,8 @@ const Login = () => {
               </div>
             </div>
 
-            {/* Login Button */}
             <AllButtons
+              type="submit"
               disable={disable}
               text="Login"
               variant="common-button"
@@ -96,9 +115,9 @@ const Login = () => {
             {/* Register Link */}
             <p className="text-sm text-center">
               New here?{" "}
-              <a href="/register" className="hover:text-blue-600">
+              <Link to='/signup' className="hover:text-blue-600">
                 Create a New Account
-              </a>
+              </Link>
             </p>
           </form>
 
