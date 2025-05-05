@@ -48,7 +48,7 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center space-x-4 text-white">
-          <Link to='mycart'>
+          <Link to='/dashboard/cart'>
           <div className="relative">
             <ShoppingCart className="h-5 w-5" />
             <span className="absolute -top-2 -right-3 bg-black opacity-80 text-xs rounded-full px-2">
