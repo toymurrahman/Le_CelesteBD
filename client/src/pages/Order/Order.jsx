@@ -13,29 +13,26 @@ const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
 
 const Order = () => {
   const [menu, loading] = useMenu();
-  const {category} = useParams();
-  const initialIndex = categories.indexOf(category);
+  const { category } = useParams();
+  const initialIndex =
+    categories.indexOf(category) !== -1 ? categories.indexOf(category) : 0;
   const [tabIndex, setTabIndex] = useState(initialIndex);
-  
+
   const categorizedItems = categories.map((cat) =>
     menu.filter((item) => item.category === cat)
-);
+  );
 
-if (loading) return <LoadinPan />;
+  if (loading) return <LoadinPan />;
   return (
     <section>
       <Helmet>
         <title>Order | Le CélesteBD </title>
       </Helmet>
-
-      {/* Banner */}
       <CoverForAll
         img={orderImg}
         title="Order food"
         sub_title="Lets explore our delicious menu and grab all of it. Bet you can't eat less!"
       />
-
-      {/* Tabs */}
       <div className="container mx-auto mt-5">
         <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
           <div className="flex justify-center overflow-x-auto">

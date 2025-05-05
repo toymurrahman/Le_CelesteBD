@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../../public/logo.png";
 
 const Footer = () => {
   return (
@@ -7,13 +8,18 @@ const Footer = () => {
         <div className="lg:flex">
           <div className="w-full  lg:w-2/5">
             <div>
-              <a href="#">
+            <div className="flex gap-2 items-center">
+                <div>
                 <img
                   className="w-auto h-7"
-                  src="../../../public/logo.png"
+                  src={logo}
                   alt="LC"
                 />
-              </a>
+                </div>
+                <div className="font-bold">Le CelesteBD</div>
+            </div>
+                
+
 
               <p className="max-w-sm mt-2 text-gray-500 dark:text-gray-400">
                 Join 31,000+ other and never miss out on new tips, tutorials,

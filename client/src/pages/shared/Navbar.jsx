@@ -46,12 +46,14 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center space-x-4 text-white">
+          <Link to='mycart'>
           <div className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-2 -right-2 bg-gray-300 text-xs rounded-full px-1">
-              0
+            <span className="absolute -top-2 -right-3 bg-gray-400 text-xs rounded-full px-1">
+              +0
             </span>
           </div>
+          </Link>
           <Search className="h-5 w-5" />
           {user ? (
             <Menu className="h-5 w-5 cursor-pointer" onClick={toggleMenu} />

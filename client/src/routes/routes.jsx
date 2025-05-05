@@ -3,9 +3,8 @@ import Main from "../Layouts/Main";
 import Home from "../pages/Home/Home";
 import Menu from "../pages/Menu/Menu";
 import Order from "../pages/Order/Order";
-import { LogIn } from "lucide-react";
 import Login from "../pages/Auth/Login";
-import SignUp from './../pages/Auth/SignUp';
+import SignUp from "./../pages/Auth/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +40,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <SignUp/>,
+    element: <SignUp />,
   },
 ]);
