@@ -6,9 +6,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import SocialButton from "../../components/shared/SocialButton";
 
 
 const SignUp = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate();
   const {
@@ -24,18 +27,27 @@ const SignUp = () => {
         console.log(loggedUser);
         updateUserProfile(data.name, data.photoURL)
         .then(()=>{
-          console.log('Updated');
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "User Created Successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
+          const userInfo = {
+            name: data.name,
+            email: data.email
+          }
+          axiosPublic.post('/users',userInfo)
+          .then(res=> {
+            if(res.data.insertedId){
+              reset();
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Created Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          })
           navigate('/');
         })
         .catch(err => console.log(err))
-        reset();
+        
       })
       .catch((err) => {
         console.error("Signup error:", err.message);
@@ -157,9 +169,7 @@ const SignUp = () => {
 
             <div className="divider">Or sign up with</div>
             <div className="flex justify-center gap-4 text-xl">
-              <FaFacebook className="cursor-pointer hover:text-blue-600" />
-              <FaGoogle className="cursor-pointer hover:text-red-500" />
-              <FaGithub className="cursor-pointer hover:text-gray-700" />
+            <SocialButton  text='Login with Google' icon={ <FaGoogle className="cursor-pointer hover:text-blue-500" /> } />
             </div>
           </div>
         </div>

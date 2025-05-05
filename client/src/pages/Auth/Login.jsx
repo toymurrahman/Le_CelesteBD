@@ -11,6 +11,7 @@ import AllButtons from "../../components/shared/AllButtons";
 import useAuth from "../../hooks/useAuth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialButton from "../../components/shared/SocialButton";
 
 const Login = () => {
   const captchaRef = useRef(null);
@@ -135,9 +136,10 @@ const Login = () => {
             {/* Social Logins */}
             <div className="divider">Or sign in with</div>
             <div className="flex justify-center gap-4 text-xl">
-              <FaFacebook className="cursor-pointer hover:text-blue-600" />
-              <FaGoogle className="cursor-pointer hover:text-red-500" />
-              <FaGithub className="cursor-pointer hover:text-gray-700" />
+              <SocialButton  text='Login with Google' icon={ <FaGoogle className="cursor-pointer hover:text-blue-500" /> } />
+
+              {/* <FaFacebook className="cursor-pointer hover:text-blue-600" />
+              <FaGithub className="cursor-pointer hover:text-gray-700" /> */}
             </div>
           </div>
         </div>
