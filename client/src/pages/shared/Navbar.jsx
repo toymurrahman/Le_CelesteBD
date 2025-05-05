@@ -5,11 +5,13 @@ import logo from "../../../public/logo.png";
 import AllButtons from "../../components/shared/AllButtons";
 import useAuth from "../../hooks/useAuth";
 import useSmallDevice from "../../hooks/useSmallDevice";
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useAuth();
   const isSmallDevice = useSmallDevice();
+  const [cart]= useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -49,8 +51,8 @@ const Navbar = () => {
           <Link to='mycart'>
           <div className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-2 -right-3 bg-gray-400 text-xs rounded-full px-1">
-              +0
+            <span className="absolute -top-2 -right-3 bg-black opacity-80 text-xs rounded-full px-2">
+              {cart.length}
             </span>
           </div>
           </Link>
