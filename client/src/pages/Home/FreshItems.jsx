@@ -30,15 +30,15 @@ const features = [
 
 const FreshItems = () => {
     return (
-        <div className="bg-gray-50 py-16">
+        <div className="bg-emerald-50 py-16">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
         {features.map((item, index) => (
           <div key={index} className="text-center px-4">
             <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-white shadow-md flex items-center justify-center">
               <img src={item.img} alt={item.title} className="h-16 object-contain" />
             </div>
-            <h3 className="uppercase text-sm tracking-widest font-semibold mb-2">{item.title}</h3>
-            <p className="text-gray-500 text-sm">{item.desc}</p>
+            <h3 className="uppercase text-emerald-950 text-sm tracking-widest font-semibold mb-2">{item.title}</h3>
+            <p className="text-emerald-800 text-sm">{item.desc}</p>
           </div>
         ))}
       </div>

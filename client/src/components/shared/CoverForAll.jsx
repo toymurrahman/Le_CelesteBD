@@ -12,8 +12,8 @@ const CoverForAll = ({ img, title, sub_title }) => {
       >
         <div className="text-neutral-content text-center">
           <div className="max-w-md">
-            <h1 className="mb-5 uppercase text-5xl font-bold"> {title} </h1>
-            <p className="mb-5">{sub_title}</p>
+            <h1 className="mb-5 uppercase   text-5xl font-bold"> {title} </h1>
+            <p className="mb-5 text-emerald-300 ">{sub_title}</p>
           </div>
         </div>
       </div>

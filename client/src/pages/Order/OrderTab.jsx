@@ -54,14 +54,13 @@ const OrderTab = ({ items }) => {
 
       {/* Custom Pagination Buttons */}
       <div className="flex justify-center mt-8 space-x-2 flex-wrap">
-        {/* Prev Button */}
         <button
           onClick={handlePrev}
           disabled={activeIndex === 0}
           className={`px-4 py-2 rounded ${
             activeIndex === 0
-              ? "bg-gray-100 cursor-not-allowed"
-              : "bg-gray-300 hover:bg-gray-500"
+              ? "bg-emerald-100 cursor-not-allowed"
+              : "text-white bg-emerald-600 hover:bg-emerald-700"
           }`}
         >
           Prev
@@ -75,22 +74,21 @@ const OrderTab = ({ items }) => {
             disabled={index === activeIndex}
             className={`px-4 py-2 rounded ${
               index === activeIndex
-                ? "bg-gray-500 text-white cursor-not-allowed"
-                : "bg-gray-200 hover:bg-gray-300"
+                ? " text-white bg-emerald-600 cursor-not-allowed"
+                : "bg-emerald-100 hover:bg-emerald-700"
             }`}
           >
             {index + 1}
           </button>
         ))}
 
-        {/* Next Button */}
         <button
           onClick={handleNext}
           disabled={activeIndex === slides.length - 1}
           className={`px-4 py-2 rounded ${
             activeIndex === slides.length - 1
-              ? "bg-gray-100 cursor-not-allowed"
-              : "bg-gray-300 hover:bg-gray-500"
+              ? "bg-emerald-100 cursor-not-allowed"
+              : "text-white bg-emerald-600 hover:bg-emerald-700"
           }`}
         >
           Next

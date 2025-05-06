@@ -2,30 +2,27 @@ import React from "react";
 import img from "../../assets/image/topitem.jpg";
 import { Link } from "react-router-dom";
 import AllButtons from "../../components/shared/AllButtons";
+import SectionTitle from "../../components/shared/SectionTitle";
 
 const TopofMenu = () => {
   return (
     <section
-      className="relative bg-fixed bg-cover bg-center text-white py-20 px-6"
+      className="relative bg-fixed bg-cover bg-center text-white py-5 px-6"
       style={{
         backgroundImage: `url(${img})`,
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      <div className="relative max-w-6xl mx-auto text-center">
-        <p className=" tracking-widest mb-2">---Check it out---</p>
-        <h2 className="text-3xl lg:text-4xl font-bold mb-10 border-t border-b inline-block py-3 px-6">
-          FROM OUR MENU
-        </h2>
-
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 mt-10">
+      <div className="relative mb-10  max-w-6xl mx-auto text-center">
+        <SectionTitle subHeading={'Check it out'} heading={'from our menu'} />
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 ">
           <img
             src={img}
             alt="Menu Dish"
             className="w-full max-w-md shadow-lg rounded-md"
           />
           <div className="text-left max-w-xl">
-            <p className="text-sm mb-2 text-gray-300">March 20, 2023</p>
+            <p className="text-sm mb-2 text-gray-300">March 20, 2025</p>
             <h3 className="text-xl font-semibold mb-4">
               WHERE CAN I GET SOME?
             </h3>

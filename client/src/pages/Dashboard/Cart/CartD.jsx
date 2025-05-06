@@ -1,10 +1,11 @@
 import React from "react";
-import useCart from "../../hooks/useCart";
-import SectionTitle from "./../../components/shared/SectionTitle";
 import { Trash2 } from "lucide-react";
-import AllButtons from "../../components/shared/AllButtons";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from './../../../hooks/useCart';
+import AllButtons from './../../../components/shared/AllButtons';
+import SectionTitle from './../../../components/shared/SectionTitle';
+
 
 const CartD = () => {
   const [cart, refetch] = useCart();
@@ -43,12 +44,12 @@ const CartD = () => {
         subHeading={"My Cart"}
       ></SectionTitle>
       {/* table section */}
-      <div className=" mx-auto  bg-white shadow rounded ">
+      <div className="p-4 mx-auto  bg-gray-50 shadow-lg rounded ">
         <div className="flex text-sm justify-between items-center border-b pb-4 mb-4">
-          <div className="text-xl font-semibold">
+          <div className=" font-semibold">
             TOTAL ORDERS: {cart.length}
           </div>
-          <div className="text-xl font-semibold">
+          <div className=" font-semibold">
             TOTAL PRICE: ${totalPrice.toFixed(2)}
           </div>
           <AllButtons text="PAY" />
@@ -56,12 +57,12 @@ const CartD = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-black opacity-70 text-white uppercase text-sm">
-                <th className="p-3 font-bold">Qty</th>
-                <th className="p-3 font-bold">Item Image</th>
-                <th className="p-3 font-bold">Item Name</th>
-                <th className="p-3 font-bold">Price</th>
-                <th className="p-3 font-bold text-center">Action</th>
+              <tr className="bg-emerald-600 text-white uppercase text-sm">
+                <th className="p-3 ">Qty</th>
+                <th className="p-3 ">Item Image</th>
+                <th className="p-3 ">Item Name</th>
+                <th className="p-3 ">Price</th>
+                <th className="p-3  text-center">Action</th>
               </tr>
             </thead>
             <tbody>

@@ -14,12 +14,12 @@ const MenuCard = ({ item }) => {
           <div>
             <h3 className="text-lg font-semibold">{item.title}</h3>
             <hr />
-            <p className="text-gray-500 w-4/5">
+            <p className=" text-emerald-700  w-4/5">
               {item.description.split(" ").slice(0, 6).join(" ")}&hellip;
             </p>
           </div>
         </div>
-        <span className="text-xl font-bold -ml-10">${item.price}</span>
+        <span className="text-xl text-emerald-600 font-bold -ml-10">${item.price}</span>
       </div>
     </section>
   );

@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import {
+  FaBookDead,
   FaCalendarCheck,
   FaCalendarDay,
   FaHome,
+  FaList,
+  FaMailchimp,
   FaMenorah,
   FaShoppingCart,
   FaStar,
+  FaUsers,
 } from "react-icons/fa";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import { NavLink, Outlet } from "react-router-dom";
-import AllButtons from "../components/shared/AllButtons";
+import SectionTitle from "../components/shared/SectionTitle";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const isAdmin = true;
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -20,7 +26,7 @@ const Dashboard = () => {
   return (
     <div className="flex relative min-h-screen">
       <button
-        className="sm:hidden absolute top-4 left-4 z-50 bg-black opacity-70 text-white p-2 rounded"
+        className="sm:hidden absolute top-4 left-4 z-50 bg-emerald-600  text-white p-2 rounded"
         onClick={toggleSidebar}
       >
         ☰
@@ -30,38 +36,73 @@ const Dashboard = () => {
       <div
         className={`${
           isSidebarOpen ? "block" : "hidden"
-        } sm:block absolute sm:static top-0 left-0 z-40 w-64 min-h-screen bg-black opacity-90 text-white uppercase text-lg transition-transform duration-300`}
-      >
+        } sm:block absolute sm:static top-0 left-0 z-40 w-64 min-h-screen bg-emerald-600  text-white uppercase text-lg transition-transform duration-300`}
+      > 
+      <h2 className="text-center text-xl font-bold pt-10 pb-10">Le CelesteBd</h2>
         <ul className="menu w-full pt-16 sm:pt-0">
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaHome /> Overview
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaShoppingCart /> My Cart
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaCalendarDay /> Reservation
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaStar /> Review
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/dashboard/cart">
-              <FaCalendarCheck /> My Booking
-            </NavLink>
-          </li>
+          {isAdmin ? (
+            <>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaHome /> Admin Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                <GiForkKnifeSpoon /> Add Items
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaList /> Manage Items
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/users">
+                  <FaUsers /> All Users
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaBookDead /> Manage Booking
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaHome /> Overview
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaShoppingCart /> My Cart
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaCalendarDay /> Reservation
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaStar /> Review
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/cart">
+                  <FaCalendarCheck /> My Booking
+                </NavLink>
+              </li>
+            </>
+          )}
+
           <div className="flex w-full flex-col">
             <div className="divider divider-info"></div>
           </div>
 
+          {/* Navlinks */}
           <div>
             <li>
               <NavLink to="/">
@@ -71,6 +112,11 @@ const Dashboard = () => {
             <li>
               <NavLink to="/order/salad">
                 <FaMenorah /> Menu
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/reservation">
+                <FaMailchimp /> Reservation
               </NavLink>
             </li>
           </div>
