@@ -13,11 +13,11 @@ import {
 } from "react-icons/fa";
 import { GiForkKnifeSpoon } from "react-icons/gi";
 import { NavLink, Outlet } from "react-router-dom";
-import SectionTitle from "../components/shared/SectionTitle";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const isAdmin = true;
+  const [isAdmin] = useAdmin() ;
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);

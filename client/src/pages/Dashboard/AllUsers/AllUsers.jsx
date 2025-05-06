@@ -15,7 +15,7 @@ const AllUsers = () => {
       return res.data;
     },
   });
-// Rule set  (ADMIN) 
+  // Rule set  (ADMIN)
   const handleMakeAdmin = (user) => {
     Swal.fire({
       title: "Are you sure?",
@@ -41,7 +41,7 @@ const AllUsers = () => {
       }
     });
   };
-// User Delete
+  // User Delete
   const handleDeleteUser = (user) => {
     Swal.fire({
       title: "Are you sure?",
@@ -93,19 +93,23 @@ const AllUsers = () => {
             <tbody>
               {users.map((user, index) => (
                 <tr
-                  key={user.id}
+                  key={user._id}
                   className="border-b hover:bg-gray-50 transition-all"
                 >
                   <td className="p-3 font-semibold">{index + 1}</td>
                   <td className="p-3">{user.name}</td>
                   <td className="p-3">{user.email}</td>
                   <td className="p-3">
-                    <button
-                      onClick={() => handleMakeAdmin(user)}
-                      className="bg-emerald-600 text-white p-2 rounded"
-                    >
-                      <Users size={16} />
-                    </button>
+                    {user.role === "admin" ? (
+                      "Admin"
+                    ) : (
+                      <button
+                        onClick={() => handleMakeAdmin(user)}
+                        className="bg-emerald-600 text-white p-2 rounded"
+                      >
+                        <Users size={16} />
+                      </button>
+                    )}
                   </td>
                   <td className="p-3">
                     <button
