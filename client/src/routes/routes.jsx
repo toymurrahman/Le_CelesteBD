@@ -12,6 +12,9 @@ import CartD from "../pages/Dashboard/Cart/CartD";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AdminRoutes from "./Admin/AdminRoutes";
 import Additems from "../pages/Dashboard/AddItems/Additems";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
+import UpdateItem from "../pages/Dashboard/ManageItems/UpdateItem";
+import Dekore from "./Admin/Dekore";
 
 export const router = createBrowserRouter([
   {
@@ -75,13 +78,29 @@ export const router = createBrowserRouter([
         path: "addItems",
         element: (
           <AdminRoutes>
-           <Additems/>
+            <Additems />
           </AdminRoutes>
         ),
       },
+      {
+        path: "manageItems",
+        element: (
+          <AdminRoutes>
+            <ManageItems />
+          </AdminRoutes>
+        ),
+      },
+      {
+        path: "updateItem/:id",
+        element: (
+          <AdminRoutes>
+            <UpdateItem />
+          </AdminRoutes>
+        ),
 
-
-
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/menu/${params.id}`),
+      },
     ],
   },
 ]);

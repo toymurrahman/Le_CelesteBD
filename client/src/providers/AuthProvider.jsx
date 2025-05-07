@@ -41,26 +41,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  //   const logOut = async () => {
-  //     try {
-  //       setLoading(true);
-
-  //       // Optional: call backend to clear cookies
-  //       await axios(`${import.meta.env.VITE_API_URL}/logout`, {
-  //         withCredentials: true,
-  //       });
-
-  //       // Firebase sign out
-  //       await signOut(auth);
-
-  //       toast.success("Successfully logged out!");
-  //     } catch (error) {
-  //       console.error("Logout failed:", error);
-  //       toast.error("Failed to log out.");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
+  
 
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
@@ -74,25 +55,21 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      if(currentUser){
+      if (currentUser) {
         const userInfo = { email: currentUser.email };
-        // get token
         axiosPublic.post('/jwt', userInfo)
-        .then(res => {
-          if(res.data.token){
-            localStorage.setItem('access-token', res.data.token);
-          }
-        })
-        
-      }
-      else{
-        //  remove token from client side
+          .then(res => {
+            if (res.data.token) {
+              localStorage.setItem('access-token', res.data.token);
+              setUser(currentUser);
+            }
+          });
+      } else {
         localStorage.removeItem('access-token');
+        setUser(null); 
       }
     });
-    return () => {
-      return unsubscribe();
-    };
+    return () => unsubscribe();
   }, [axiosPublic]);
 
   const authInfo = {

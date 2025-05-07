@@ -13,7 +13,6 @@ const useAxiosSecure = () => {
   axiosSecure.interceptors.request.use(
     function (config) {
       const token = localStorage.getItem("access-token");
-      console.log("tor ki token lagbo?", token);
       config.headers.authorization = `Bearer ${token}`;
       return config;
     },
