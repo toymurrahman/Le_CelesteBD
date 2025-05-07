@@ -14,7 +14,7 @@ const MenuCard = ({ item }) => {
           <div>
             <h3 className="text-lg font-semibold">{item.title}</h3>
             <hr />
-            <p className=" text-emerald-700  w-4/5">
+            <p className=" text-emerald-900  w-4/5">
               {item.description.split(" ").slice(0, 6).join(" ")}&hellip;
             </p>
           </div>

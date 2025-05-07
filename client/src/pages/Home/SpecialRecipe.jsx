@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import SectionTitle from "../../components/shared/SectionTitle";
 import FoodCard from "../../components/shared/FoodCard";
+import useAxiosPublic from "./../../hooks/useAxiosPublic";
 
 const SpecialRecipe = () => {
   const [item, setItem] = useState([]);
+  const axiosPbulic = useAxiosPublic();
 
   useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => setItem(data));
+    axiosPbulic.get("/menu").then((res) => setItem(res.data));
   });
   const popular = item.filter((item) => item.category === "popular");
   return (

@@ -6,20 +6,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Rating } from "@smastrom/react-rating";
-
 import "@smastrom/react-rating/style.css";
-
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 
 const Testimonials = () => {
+ const axiosPublic = useAxiosPublic();
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
-      .then((res) => res.json())
-      .then((data) => {
-        setReviews(data);
+    axiosPublic.get("/reviews")
+      .then((res) => {
+        setReviews(res.data);
       });
-  });
+  }, []);
   return (
     <section
       className="relative bg-fixed bg-cover bg-center text-white py-10 px-6"

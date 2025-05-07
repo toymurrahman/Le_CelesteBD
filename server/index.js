@@ -125,9 +125,15 @@ async function run() {
       res.send(result);
     });
 
+
     // menu collection
     app.get("/menu", async (req, res) => {
       const result = await menuCollection.find().toArray();
+      res.send(result);
+    });
+    app.post("/menu", verifyToken,verifyAdmin, async (req, res) => {
+      const item = req.body;
+      const result = await menuCollection.insertOne(item);
       res.send(result);
     });
 
