@@ -8,7 +8,7 @@ import img4 from '../../assets/freshitem/home1-main-icon4.png';
 const features = [
     {
       img:img1 ,
-      title: 'Fresh Ingredients',
+      title: 'Fresh Vagies',
       desc: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque',
     },
     {
@@ -18,12 +18,12 @@ const features = [
     },
     {
       img: img3,
-      title: 'Mediterranean Taste',
+      title: 'Tasty Crops',
       desc: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque',
     },
     {
       img: img4,
-      title: 'Eating Well',
+      title: 'harvest fruits',
       desc: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque',
     },
   ];

@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useAuth();
   const isSmallDevice = useSmallDevice();
-  const [cart]= useCart();
+  const [cart] = useCart();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -37,7 +37,7 @@ const Navbar = () => {
             <Link to="/order">Order</Link>
           </li>
           <li>
-            <a href="#">Portfolio</a>
+            <Link to="/about">About Us</Link>
           </li>
           <li>
             <a href="#">Blog</a>
@@ -48,13 +48,13 @@ const Navbar = () => {
         </ul>
 
         <div className="flex items-center space-x-4 text-white">
-          <Link to='/dashboard/cart'>
-          <div className="relative">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -top-2 -right-3 bg-black opacity-80 text-xs rounded-full px-2">
-              {cart.length}
-            </span>
-          </div>
+          <Link to="/dashboard/cart">
+            <div className="relative">
+              <ShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-2 -right-3 bg-black opacity-80 text-xs rounded-full px-2">
+                {cart.length}
+              </span>
+            </div>
           </Link>
           <Search className="h-5 w-5" />
           {user ? (
@@ -98,9 +98,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" onClick={toggleMenu}>
-                    Portfolio
-                  </a>
+                  <Link to="/about" onClick={toggleMenu}>
+                    About Us
+                  </Link>
                 </li>
                 <li>
                   <a href="#" onClick={toggleMenu}>

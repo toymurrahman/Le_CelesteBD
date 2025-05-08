@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "./../../../hooks/useAxiosSecure";
 import useCart from "./../../../hooks/useCart";
 import useAuth from "../../../hooks/useAuth";
+import Swal from 'sweetalert2';
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = () => {
   const [error, setError] = useState("");
@@ -11,15 +13,17 @@ const CheckOutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
-  const [cart] = useCart();
+  const navigate = useNavigate();
+  const [cart, refetch] = useCart();
   const { user } = useAuth();
   const price = cart.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
+   if(price > 0){
     axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-      console.log(res.data.clientSecret);
       setClientSecret(res.data.clientSecret);
     });
+   }
   }, [axiosSecure, price]);
 
   const handleSubmit = async (e) => {
@@ -63,6 +67,28 @@ const CheckOutForm = () => {
       console.log(paymentIntent);
       if (paymentIntent.status === "succeeded") {
         setTransactionId(paymentIntent.id);
+        // payment set in db
+        const payment = {
+          email: user.email,
+          price: price,
+          date: new Date(),
+          transactionId: paymentIntent.id,
+          cartIds: cart.map(item => item._id),
+          menuItemIds: cart.map(item => item.menuId),
+          status: 'pending'
+        }
+        const res = await axiosSecure.post('/payments', payment);
+        refetch();
+        if(res.data?.paymentResult?.insertedId){
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Payment Successfull",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          navigate('/dashboard/paymentHistory');
+        }
       }
     }
   };

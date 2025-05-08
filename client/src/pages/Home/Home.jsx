@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from "../../components/Carousel";
+// import Carousel from "../../components/Carousel";
 import Story from "../../components/Story";
 import Cheif from "../../components/Cheif";
 import FoodCarousel from "../../components/FoodCarousel";

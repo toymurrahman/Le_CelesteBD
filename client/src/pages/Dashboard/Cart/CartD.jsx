@@ -38,13 +38,13 @@ const CartD = () => {
 
   const totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
   return (
-    <div className="flex flex-col">
+    <div className="m-4">
       <SectionTitle
         heading={"Wanna add more?"}
         subHeading={"My Cart"}
       ></SectionTitle>
       {/* table section */}
-      <div className="p-4 mx-auto  bg-gray-50 shadow-lg rounded ">
+      <div className="p-4 mx-auto text-gray-900  bg-gray-50 shadow-lg rounded ">
         <div className="flex text-sm justify-between items-center border-b pb-4 mb-4">
           <div className=" font-semibold">TOTAL ORDERS: {cart.length}</div>
           <div className=" font-semibold">
@@ -63,7 +63,7 @@ const CartD = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-emerald-600 text-white uppercase text-sm">
+              <tr className="bg-emerald-600 text-white  uppercase text-sm">
                 <th className="p-3 ">Qty</th>
                 <th className="p-3 ">Item Image</th>
                 <th className="p-3 ">Item Name</th>
@@ -71,7 +71,7 @@ const CartD = () => {
                 <th className="p-3  text-center">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-gray-900">
               {cart.map((item, index) => (
                 <tr
                   key={item._id}
