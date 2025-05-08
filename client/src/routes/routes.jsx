@@ -6,7 +6,6 @@ import Order from "../pages/Order/Order";
 import Login from "../pages/Auth/Login";
 import SignUp from "./../pages/Auth/SignUp";
 import Dashboard from "../Layouts/Dashboard";
-
 import PrivateRoute from "./private/PrivateRoute";
 import CartD from "../pages/Dashboard/Cart/CartD";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
@@ -14,12 +13,14 @@ import AdminRoutes from "./Admin/AdminRoutes";
 import Additems from "../pages/Dashboard/AddItems/Additems";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../pages/Dashboard/ManageItems/UpdateItem";
-import Dekore from "./Admin/Dekore";
+import Payment from './../pages/Dashboard/Payment/Payment';
+import ErrorPage from "../pages/shared/Error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         index: true,
@@ -59,11 +60,16 @@ export const router = createBrowserRouter([
         <Dashboard />
       </PrivateRoute>
     ),
+    errorElement: <ErrorPage/>,
     children: [
       // users routes
       {
         path: "cart",
         element: <CartD />,
+      },
+      {
+        path: "payment",
+        element: <Payment />,
       },
       // admin routes
       {
@@ -101,6 +107,7 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/menu/${params.id}`),
       },
+
     ],
   },
 ]);

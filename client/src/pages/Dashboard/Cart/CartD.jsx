@@ -2,10 +2,10 @@ import React from "react";
 import { Trash2 } from "lucide-react";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useCart from './../../../hooks/useCart';
-import AllButtons from './../../../components/shared/AllButtons';
-import SectionTitle from './../../../components/shared/SectionTitle';
-
+import useCart from "./../../../hooks/useCart";
+import AllButtons from "./../../../components/shared/AllButtons";
+import SectionTitle from "./../../../components/shared/SectionTitle";
+import { Link } from "react-router-dom";
 
 const CartD = () => {
   const [cart, refetch] = useCart();
@@ -23,14 +23,14 @@ const CartD = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${id}`).then((res) => {
-            if (res.data.deletedCount > 0) {
-                refetch();
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "Your item has been deleted.",
-                  icon: "success",
-                });
-              }
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your item has been deleted.",
+              icon: "success",
+            });
+          }
         });
       }
     });
@@ -46,13 +46,19 @@ const CartD = () => {
       {/* table section */}
       <div className="p-4 mx-auto  bg-gray-50 shadow-lg rounded ">
         <div className="flex text-sm justify-between items-center border-b pb-4 mb-4">
-          <div className=" font-semibold">
-            TOTAL ORDERS: {cart.length}
-          </div>
+          <div className=" font-semibold">TOTAL ORDERS: {cart.length}</div>
           <div className=" font-semibold">
             TOTAL PRICE: ${totalPrice.toFixed(2)}
           </div>
-          <AllButtons text="PAY" />
+          {cart.length ? (
+            <Link to={"/dashboard/payment"}>
+              <AllButtons text="PAY" />
+            </Link>
+          ) : (
+            <Link to={"/dashboard/payment"}>
+              <AllButtons disable={!cart.length} text="PAY" />
+            </Link>
+          )}
         </div>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
