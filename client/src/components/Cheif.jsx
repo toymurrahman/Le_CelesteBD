@@ -6,36 +6,34 @@ import SectionTitle from "./shared/SectionTitle";
 
 const Cheif = () => {
   return (
-    <div>
-      <section className=" py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center justify-between">
-        {/* Text Content */}
-        <div className="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
-          <SectionTitle subHeading={'PASSION & PRECISION'} heading={'Meet Our Cheif'}/>
-          <p className=" mb-4">
+    <section className="py-20 px-6 lg:px-20 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div className="lg:w-1/2 text-center lg:text-left">
+          <SectionTitle
+            subHeading="PASSION & PRECISION"
+            heading="Meet Our Chef"
+          />
+          <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6">
             With years of culinary experience and a passion for perfection, our
             chef brings creativity and excellence to every dish. From selecting
             the freshest ingredients to plating with finesse, each meal is a
             reflection of dedication to taste and quality.
           </p>
-
-          <Link to='/menu'>
-            <AllButtons
-              variant="common-button"
-              text="Read More"
-            />
+          <Link to="/about">
+            <AllButtons variant="common-button" text="Contact Us" />
           </Link>
         </div>
-
-        {/* Chef Image */}
         <div className="lg:w-1/2 flex justify-center">
-          <img
-            src={chefImage}
-            alt="Chef"
-            className="w-full max-w-xs lg:max-w-sm object-contain"
-          />
+          <div className="rounded-3xl overflow-hidden shadow-xl border border-emerald-200 dark:border-emerald-700">
+            <img
+              src={chefImage}
+              alt="Chef"
+              className="w-full max-w-xs lg:max-w-sm object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

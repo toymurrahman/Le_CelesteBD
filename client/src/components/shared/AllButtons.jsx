@@ -6,16 +6,16 @@ const AllButtons = ({
   onClick,
   type = "",
   className = "",
-  disable = false, 
+  disable = false,
 }) => {
   const isBannar = variant === "bannar-button";
 
   const baseClass = isBannar
     ? "relative inline-flex items-center justify-start px-4 py-2 overflow-hidden font-bold rounded-full group"
-    : "group relative h-10 overflow-hidden border border-emerald-100 rounded-md bg-emerald-50 px-4 transition duration-300";
+    : "group relative h-10 overflow-hidden border border-emerald-100 dark:border-emerald-700 rounded-md bg-emerald-50 dark:bg-gray-800 px-4 transition duration-300";
 
   const mergedClass = clsx(baseClass, className, {
-    "opacity-50 cursor-not-allowed": disable, 
+    "opacity-50 cursor-not-allowed": disable,
   });
 
   return (
@@ -23,23 +23,23 @@ const AllButtons = ({
       type={type}
       onClick={onClick}
       className={mergedClass}
-      disabled={disable} 
+      disabled={disable}
     >
       {isBannar ? (
         <>
-          <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white opacity-[3%]" />
-          <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white opacity-100 group-hover:-translate-x-8" />
-          <span className="relative w-full text-left text-emerald-500  transition-colors duration-200 ease-in-out group-hover:text-gray-900">
+          <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-white dark:bg-white opacity-[3%]" />
+          <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-white dark:bg-white opacity-100 group-hover:-translate-x-8" />
+          <span className="relative w-full text-left text-emerald-500 dark:text-emerald-400 transition-colors duration-200 ease-in-out group-hover:text-gray-900 dark:group-hover:text-white">
             {text}
           </span>
-          <span className="absolute inset-0 border-2 border-emerald-500  rounded-full" />
+          <span className="absolute inset-0 border-2 border-emerald-500 dark:border-emerald-400 rounded-full" />
         </>
       ) : (
         <>
-          <span className="relative  z-10 text-emerald-600  transition group-hover:text-white font-medium">
+          <span className="relative z-10 transition group-hover:text-white font-medium text-emerald-900 dark:text-emerald-100">
             {text}
           </span>
-          <div className="absolute   inset-0 h-full w-0  bg-emerald-700 transition-all duration-300 group-hover:w-full z-0" />
+          <div className="absolute inset-0 h-full w-0 bg-emerald-700 transition-all duration-300 group-hover:w-full z-0" />
         </>
       )}
     </button>
@@ -47,6 +47,7 @@ const AllButtons = ({
 };
 
 export default AllButtons;
+
 
 
 /*

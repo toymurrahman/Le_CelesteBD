@@ -34,7 +34,7 @@ const OrderTab = ({ items }) => {
   };
 
   return (
-    <div className="m-10">
+    <div className="m-10 p-6 rounded-lg shadow-lg dark:bg-gray-800 dark:text-white bg-white text-gray-900">
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
@@ -43,7 +43,7 @@ const OrderTab = ({ items }) => {
       >
         {slides.map((group, index) => (
           <SwiperSlide key={index}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-2">
               {group.map((item) => (
                 <FoodCard key={item._id} item={item} />
               ))}
@@ -57,10 +57,10 @@ const OrderTab = ({ items }) => {
         <button
           onClick={handlePrev}
           disabled={activeIndex === 0}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 rounded-lg transition-all duration-300 ${
             activeIndex === 0
-              ? "bg-emerald-100 cursor-not-allowed"
-              : "text-white bg-emerald-600 hover:bg-emerald-700"
+              ? "bg-emerald-600 text-gray-500 cursor-not-allowed"
+              : "bg-emerald-600 text-white hover:bg-emerald-700"
           }`}
         >
           Prev
@@ -72,10 +72,10 @@ const OrderTab = ({ items }) => {
             key={index}
             onClick={() => handleGoToSlide(index)}
             disabled={index === activeIndex}
-            className={`px-4 py-2 rounded ${
+            className={`px-4 py-2 rounded-lg transition-all duration-300 ${
               index === activeIndex
-                ? " text-white bg-emerald-600 cursor-not-allowed"
-                : "bg-emerald-100 hover:bg-emerald-700"
+                ? "bg-emerald-700 text-white cursor-not-allowed"
+                : "bg-emerald-400 hover:bg-emerald-600 text-white"
             }`}
           >
             {index + 1}
@@ -85,10 +85,10 @@ const OrderTab = ({ items }) => {
         <button
           onClick={handleNext}
           disabled={activeIndex === slides.length - 1}
-          className={`px-4 py-2 rounded ${
+          className={`px-4 py-2 rounded-lg transition-all duration-300 ${
             activeIndex === slides.length - 1
-              ? "bg-emerald-100 cursor-not-allowed"
-              : "text-white bg-emerald-600 hover:bg-emerald-700"
+              ? "bg-emerald-600 text-gray-500 cursor-not-allowed"
+              : "bg-emerald-600 text-white hover:bg-emerald-700"
           }`}
         >
           Next
