@@ -18,7 +18,7 @@ import img14 from "../assets/foodCarousel/port-fi-14.jpg";
 import SectionTitle from "./shared/SectionTitle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 ;
 
 
@@ -52,11 +52,11 @@ const Story = () => {
         <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
           <Swiper
             effect="cards"
-            modules={[Autoplay]}
+            modules={[Autoplay,Navigation]}
             loop
             autoplay={{
               delay: 1800,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
           >
             {[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14].map(

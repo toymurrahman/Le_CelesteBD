@@ -60,15 +60,16 @@ const FoodCard = ({ item }) => {
           alt={title}
           className="w-full h-64 object-cover rounded-t-3xl"
         />
-        <span className="absolute top-3 right-3 bg-emerald-600 text-white dark:bg-emerald-400 text-sm font-semibold px-4 py-1 rounded-md shadow">
+        <span className="absolute top-3 right-3 bg-emerald-600 opacity-80 text-white dark:bg-emerald-400 text-sm font-semibold px-4 py-1 rounded-md shadow">
           ${price}
         </span>
       </div>
 
       <div className="p-5 space-y-3">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          {category}
-          {'  '}
+        <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-2">
+          <span className="bg-emerald-600 opacity-80  text-white px-2 py-1 rounded-full font-xs">
+            {category}
+          </span>
           {date}
         </p>
         <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">

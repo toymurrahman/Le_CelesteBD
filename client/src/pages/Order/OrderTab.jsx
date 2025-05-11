@@ -43,7 +43,7 @@ const OrderTab = ({ items }) => {
       >
         {slides.map((group, index) => (
           <SwiperSlide key={index}>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-2">
               {group.map((item) => (
                 <FoodCard key={item._id} item={item} />
               ))}

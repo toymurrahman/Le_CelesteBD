@@ -6,12 +6,14 @@ import AllButtons from "../../components/shared/AllButtons";
 import useAuth from "../../hooks/useAuth";
 import useSmallDevice from "../../hooks/useSmallDevice";
 import useCart from "../../hooks/useCart";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useAuth();
   const isSmallDevice = useSmallDevice();
   const [cart] = useCart();
+  const [isAdmin] = useAdmin();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -107,13 +109,24 @@ const Navbar = () => {
                     Blog
                   </a>
                 </li>
-                <li>
-                  <a href="#" onClick={toggleMenu}>
-                    Shop
-                  </a>
-                </li>
+                
               </>
             ) : null}
+            {
+                  isAdmin ? (
+                    <li>
+                      <Link to="/dashboard/adminHome" onClick={toggleMenu}>
+                        Dashboard
+                      </Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link to="/dashboard/userHome" onClick={toggleMenu}>
+                        Dashboard
+                      </Link>
+                    </li>
+                  )
+                }
             <li>
               <button
                 onClick={() => {

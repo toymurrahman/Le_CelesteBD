@@ -12,12 +12,12 @@ const SpecialRecipe = () => {
   });
   const popular = item.filter((item) => item.category === "popular");
   return (
-    <section>
+    <section className="m-5 ">
       <SectionTitle
         heading={"Cheif Special"}
         subHeading={"TAsty and crunchy"}
       ></SectionTitle>
-      <div className="grid grid-cols-1 m-10 md:grid-cols-2 lg:grid-cols-3 gap-6  ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5  ">
         {popular.map((item) => (
           <FoodCard key={item._id} item={item}></FoodCard>
         ))}

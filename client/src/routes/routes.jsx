@@ -17,6 +17,8 @@ import Payment from './../pages/Dashboard/Payment/Payment';
 import ErrorPage from "../pages/shared/Error/ErrorPage";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import About from "../pages/About/About";
+import UserHome from "../pages/Dashboard/UserHome.jsx/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +68,10 @@ export const router = createBrowserRouter([
     children: [
       // users routes
       {
+        path: "userHome",
+        element: <UserHome />,
+      },
+      {
         path: "cart",
         element: <CartD />,
       },
@@ -78,6 +84,14 @@ export const router = createBrowserRouter([
         element: <PaymentHistory/>,
       },
       // admin routes
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoutes>
+            <AdminHome />
+          </AdminRoutes>
+        ),
+      },
       {
         path: "users",
         element: (
