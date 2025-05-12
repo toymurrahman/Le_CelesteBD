@@ -1,23 +1,11 @@
-import React from "react";
-import useAuth from "../../../hooks/useAuth";
-import { useQuery } from "@tanstack/react-query";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../components/shared/SectionTitle";
+import usePaymentHistory from "../../../hooks/usePaymentHistory";
 
 const PaymentHistory = () => {
-  const { user } = useAuth();
-  const axiosSecure = useAxiosSecure();
-
-  const { data: payments = [] } = useQuery({
-    queryKey: ["payments", user.email],
-    queryFn: async () => {
-      const res = await axiosSecure.get(`/payments/${user.email}`);
-      return res.data;
-    },
-  });
+  const [payments] = usePaymentHistory();
   return (
     <div>
-      <div >
+      <div>
         <SectionTitle
           subHeading={"your Transactions"}
           heading={"Payments History"}
@@ -25,8 +13,7 @@ const PaymentHistory = () => {
       </div>
       <div className="bg-gray-50 text-gray-900 p-6 rounded shadow">
         <h2 className="text-xl font-semibold mb-4">
-          Total Users:{" "}
-          <span>{payments.length}</span>
+          Total Users: <span>{payments.length}</span>
         </h2>
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
@@ -41,7 +28,7 @@ const PaymentHistory = () => {
             <tbody>
               {payments.map((payment, index) => (
                 <tr
-                  key={user._id}
+                  key={index}
                   className="border-b hover:bg-gray-50 transition-all"
                 >
                   <td className="p-3 font-semibold">{index + 1}</td>

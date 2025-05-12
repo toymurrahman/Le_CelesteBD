@@ -14,7 +14,6 @@ const Navbar = () => {
   const isSmallDevice = useSmallDevice();
   const [cart] = useCart();
   const [isAdmin] = useAdmin();
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -39,13 +38,14 @@ const Navbar = () => {
             <Link to="/order">Order</Link>
           </li>
           <li>
+            <Link to="/reservation">Reservation</Link>
+          </li>
+          <li>
             <Link to="/about">About Us</Link>
           </li>
+
           <li>
-            <a href="#">Blog</a>
-          </li>
-          <li>
-            <a href="#">Shop</a>
+            <Link to="/terms">Terms</Link>
           </li>
         </ul>
 
@@ -77,7 +77,13 @@ const Navbar = () => {
           }`}
         >
           <div className="flex justify-between items-center p-4 border-b border-gray-700">
-            <h2></h2>
+            <img
+              src={user?.photoURL}
+              alt=""
+              className="w-12 h-12 rounded-full"
+            />
+            <h2 className=" font-bold">{user?.displayName}</h2>
+
             <X className="h-6 w-6 cursor-pointer" onClick={toggleMenu} />
           </div>
 
@@ -100,6 +106,11 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/reservation" onClick={toggleMenu}>
+                    Reservation
+                  </Link>
+                </li>
+                <li>
                   <Link to="/about" onClick={toggleMenu}>
                     About Us
                   </Link>
@@ -109,24 +120,21 @@ const Navbar = () => {
                     Blog
                   </a>
                 </li>
-                
               </>
             ) : null}
-            {
-                  isAdmin ? (
-                    <li>
-                      <Link to="/dashboard/adminHome" onClick={toggleMenu}>
-                        Dashboard
-                      </Link>
-                    </li>
-                  ) : (
-                    <li>
-                      <Link to="/dashboard/userHome" onClick={toggleMenu}>
-                        Dashboard
-                      </Link>
-                    </li>
-                  )
-                }
+            {isAdmin ? (
+              <li>
+                <Link to="/dashboard/adminHome" onClick={toggleMenu}>
+                  Dashboard
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/dashboard/userHome" onClick={toggleMenu}>
+                  Dashboard
+                </Link>
+              </li>
+            )}
             <li>
               <button
                 onClick={() => {

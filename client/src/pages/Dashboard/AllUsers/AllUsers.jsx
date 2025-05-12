@@ -15,14 +15,14 @@ const AllUsers = () => {
       return res.data;
     },
   });
-  // Rule set  (ADMIN)
+
   const handleMakeAdmin = (user) => {
     Swal.fire({
       title: "Are you sure?",
       text: `Make ${user.name} an admin?`,
       icon: "question",
       showCancelButton: true,
-      confirmButtonColor: "#10B981", // emerald-600
+      confirmButtonColor: "#10B981",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, make admin",
     }).then((result) => {
@@ -41,7 +41,7 @@ const AllUsers = () => {
       }
     });
   };
-  // User Delete
+
   const handleDeleteUser = (user) => {
     Swal.fire({
       title: "Are you sure?",
@@ -58,7 +58,7 @@ const AllUsers = () => {
             refetch();
             Swal.fire({
               title: "Deleted!",
-              text: "Your item has been deleted.",
+              text: "User has been deleted.",
               icon: "success",
             });
           }
@@ -69,43 +69,45 @@ const AllUsers = () => {
 
   return (
     <div>
-      <div>
-        <SectionTitle
-          subHeading={"List of Users"}
-          heading={"manage all users"}
-        />
-      </div>
-      <div className="bg-white p-6 rounded shadow">
-        <h2 className="text-xl font-semibold mb-4">
-          Total Users: <span className="text-emerald-600">{users.length}</span>
+      <SectionTitle subHeading="List of Users" heading="Manage All Users" />
+
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-100">
+          Total Users:{" "}
+          <span className="text-emerald-600 dark:text-emerald-400">
+            {users.length}
+          </span>
         </h2>
+
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-emerald-600 text-white uppercase text-sm">
-                <th className="p-3 rounded-tl-lg "></th>
-                <th className="p-3 ">Name</th>
+              <tr className="bg-emerald-600 text-white text-sm uppercase">
+                <th className="p-3 rounded-tl-lg">#</th>
+                <th className="p-3">Name</th>
                 <th className="p-3">Email</th>
                 <th className="p-3">Role</th>
                 <th className="p-3 rounded-tr-lg">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="dark:text-gray-300">
               {users.map((user, index) => (
                 <tr
                   key={user._id}
-                  className="border-b hover:bg-gray-50 transition-all"
+                  className="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                 >
                   <td className="p-3 font-semibold">{index + 1}</td>
                   <td className="p-3">{user.name}</td>
                   <td className="p-3">{user.email}</td>
                   <td className="p-3">
                     {user.role === "admin" ? (
-                      "Admin"
+                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
+                        Admin
+                      </span>
                     ) : (
                       <button
                         onClick={() => handleMakeAdmin(user)}
-                        className="bg-emerald-600 text-white p-2 rounded"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white p-2 rounded transition-colors"
                       >
                         <Users size={16} />
                       </button>
@@ -114,7 +116,7 @@ const AllUsers = () => {
                   <td className="p-3">
                     <button
                       onClick={() => handleDeleteUser(user)}
-                      className="bg-red-600 hover:bg-red-700 p-2 rounded text-white"
+                      className="bg-red-600 hover:bg-red-700 text-white p-2 rounded transition-colors"
                     >
                       <Trash2 size={16} />
                     </button>

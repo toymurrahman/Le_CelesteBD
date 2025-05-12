@@ -13,18 +13,22 @@ import AdminRoutes from "./Admin/AdminRoutes";
 import Additems from "../pages/Dashboard/AddItems/Additems";
 import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import UpdateItem from "../pages/Dashboard/ManageItems/UpdateItem";
-import Payment from './../pages/Dashboard/Payment/Payment';
+import Payment from "./../pages/Dashboard/Payment/Payment";
 import ErrorPage from "../pages/shared/Error/ErrorPage";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
 import About from "../pages/About/About";
 import UserHome from "../pages/Dashboard/UserHome.jsx/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import ReservationForm from "../pages/Reservation/ReservationForm";
+import ReservationHistory from "../pages/Dashboard/Reservation/ReservationHistory";
+import UserReservation from "../pages/Dashboard/UserHome.jsx/UserReservation";
+import TermsPage from "../pages/TermsPage/TermsPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement:<ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -32,7 +36,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "about",
-        element: <About/>,
+        element: <About />,
       },
 
       {
@@ -46,6 +50,14 @@ export const router = createBrowserRouter([
       {
         path: "order/:category",
         element: <Order />,
+      },
+      {
+        path: "reservation",
+        element: <ReservationForm />,
+      },
+      {
+        path: "terms",
+        element: <TermsPage />,
       },
     ],
   },
@@ -64,7 +76,7 @@ export const router = createBrowserRouter([
         <Dashboard />
       </PrivateRoute>
     ),
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       // users routes
       {
@@ -81,8 +93,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory/>,
+        element: <PaymentHistory />,
       },
+      {
+        path: "userReservation",
+        element: <UserReservation />,
+      },
+
       // admin routes
       {
         path: "adminHome",
@@ -117,6 +134,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "reservationHistory",
+        element: <AdminRoutes>
+          <ReservationHistory />
+        </AdminRoutes>,
+      },
+      {
         path: "updateItem/:id",
         element: (
           <AdminRoutes>
@@ -127,7 +150,6 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/menu/${params.id}`),
       },
-
     ],
   },
 ]);

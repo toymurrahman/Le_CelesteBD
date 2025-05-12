@@ -45,7 +45,7 @@ const Dashboard = () => {
           {isAdmin ? (
             <>
               <li>
-                <NavLink to="/dashboard/cart">
+                <NavLink to="/dashboard/adminHome">
                   <FaHome /> Admin Home
                 </NavLink>
               </li>
@@ -65,7 +65,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cart">
+                <NavLink to="/dashboard/reservationHistory">
                   <FaBookDead /> Manage Booking
                 </NavLink>
               </li>
@@ -73,7 +73,7 @@ const Dashboard = () => {
           ) : (
             <>
               <li>
-                <NavLink to="/dashboard/cart">
+                <NavLink to="/dashboard/userHome">
                   <FaHome /> Overview
                 </NavLink>
               </li>
@@ -83,18 +83,13 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cart">
-                  <FaCalendarDay /> Reservation
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/dashboard/paymentHistory">
                   <FaHistory/> Payment History
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/cart">
-                  <FaCalendarCheck /> My Booking
+                <NavLink to="/dashboard/userReservation">
+                  <FaCalendarCheck /> My Reservation
                 </NavLink>
               </li>
             </>

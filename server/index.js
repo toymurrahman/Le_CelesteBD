@@ -43,6 +43,9 @@ async function run() {
     const reviewCollection = client.db("LeCeleste").collection("reviews");
     const cartCollection = client.db("LeCeleste").collection("carts");
     const paymentCollection = client.db("LeCeleste").collection("payments");
+    const reservationCollection = client
+      .db("LeCeleste")
+      .collection("reservation");
 
     // jwt related api
     app.post("/jwt", async (req, res) => {
@@ -133,6 +136,7 @@ async function run() {
     });
 
     // menu collection
+
     app.get("/menu", async (req, res) => {
       const result = await menuCollection.find().toArray();
       res.send(result);
@@ -176,6 +180,41 @@ async function run() {
       const result = await reviewCollection.find().toArray();
       res.send(result);
     });
+
+    //  reservation collection
+    app.post("/reservations", async (req, res) => {
+      const reservation = req.body;
+      const result = await reservationCollection.insertOne(reservation);
+      res.send(result);
+    });
+    //  get all reservations
+    app.get("/reservations", async (req, res) => {
+      const result = await reservationCollection.find().toArray();
+      res.send(result);
+    });
+    app.get("/reservation", async (req, res) => {
+      const email = req.query.email;
+
+      if (!email) {
+        return res.status(400).send({ error: "Email is required" });
+      }
+
+      try {
+        const query = { email: email }; // only get data that matches the email
+        const result = await reservationCollection.find(query).toArray();
+        res.send(result);
+      } catch (error) {
+        res.status(500).send({ error: "Failed to fetch reservations" });
+      }
+    });
+    app.delete("/reservation/:id", async (req, res) => {
+  const id = req.params.id;
+  const query = { _id: new ObjectId(id) };
+
+  const result = await reservationCollection.deleteOne(query);
+  res.send(result);
+});
+
 
     // carts collection
     app.get("/carts", async (req, res) => {
@@ -229,7 +268,7 @@ async function run() {
       const deleteResult = await cartCollection.deleteMany(query);
       res.send({ paymentResult, deleteResult });
     });
-    app.get("/admin-stats", verifyToken, verifyAdmin, async (req, res) => {
+    app.get("/admin-stats", async (req, res) => {
       const users = await userCollection.estimatedDocumentCount();
       const products = await menuCollection.estimatedDocumentCount();
       const orders = await paymentCollection.estimatedDocumentCount();
@@ -248,6 +287,51 @@ async function run() {
 
       const revenue = result.length > 0 ? result[0].totalRevenue : 0;
       res.send({ users, products, orders, revenue });
+    });
+
+    app.get("/order-stats", async (req, res) => {
+      const result = await paymentCollection
+        .aggregate([
+          {
+            $unwind: "$menuItemIds",
+          },
+          {
+            $addFields: {
+              menuItemObjectId: {
+                $toObjectId: "$menuItemIds",
+              },
+            },
+          },
+          {
+            $lookup: {
+              from: "menu",
+              localField: "menuItemObjectId",
+              foreignField: "_id",
+              as: "menuItem",
+            },
+          },
+          {
+            $unwind: "$menuItem",
+          },
+          {
+            $group: {
+              _id: "$menuItem.category",
+              quantity: { $sum: 1 },
+              revenue: { $sum: "$menuItem.price" },
+            },
+          },
+          {
+            $project: {
+              _id: 0,
+              category: "$_id",
+              quantity: 1,
+              revenue: 1,
+            },
+          },
+        ])
+        .toArray();
+
+      res.send(result);
     });
 
     // await client.db("admin").command({ ping: 1 });
