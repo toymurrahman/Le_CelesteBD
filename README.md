@@ -47,44 +47,44 @@
 ---
 
 ## 📁 Project Structure
-
+ ```md
 /
-├── client/                 # React frontend (Le CelesteBD)
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── firebase/
-│   │   ├── hooks/
-│   │   ├── layouts/
-│   │   ├── pages/
-│   │   ├── providers/
-│   │   ├── routes/
-│   │   ├── main.jsx
-│   │   └── App.css
-│   ├── .env.local
-│   ├── .gitignore
-│   ├── index.html
-│   ├── package.json
-│   └── postcss.config.js
-│
-├── server/                # Node.js + Express backend     
-│   ├── .env
-│   ├── .gitignore
-│   ├── index.js
-│   ├── package.json
-│   └── vercel.json
-│
+├── client/ # React frontend (Le CelesteBD)
+│ ├── public/
+│ ├── src/
+│ │ ├── assets/
+│ │ ├── components/
+│ │ ├── firebase/
+│ │ ├── hooks/
+│ │ ├── layouts/
+│ │ ├── pages/
+│ │ ├── providers/
+│ │ ├── routes/
+│ │ ├── main.jsx
+│ │ └── App.css
+│ ├── .env.local
+│ ├── .gitignore
+│ ├── index.html
+│ ├── package.json
+│ └── postcss.config.js
+
+├── server/ # Node.js + Express backend
+│ ├── .env
+│ ├── .gitignore
+│ ├── index.js
+│ ├── package.json
+│ └── vercel.json
+
 └── README.md
 
 
-
+```
 ---
 
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
-
+```bash
 git clone https://github.com/your-username/le-celestebd.git
 cd le-celestebd
  
@@ -113,7 +113,7 @@ JWT_SECRET=your_jwt_secret
 STRIPE_SECRET_KEY=your_stripe_secret
 
 ---
-
+```
 🧾 Dependencies
 Full list of dependencies used in package.json (client & server) includes:
 
@@ -126,25 +126,27 @@ Node.js, Express, MongoDB, JWT, Stripe
 ## 📷 Screenshots
 
 ### 🏠 Home Page
-![Home Page](./screenshots/jpg)
+![Home Page](./screenshorts/home.jpg)
 
 ### 🍽️ Menu Page
-![Menu](./screenshots/menu.jpg)
+![Menu](./screenshorts/menu.jpg)
 
 ### 🍽️ Order Page
-![Menu](./screenshots/order.jpg)
+![Order](./screenshorts/order.jpg)
 
 ### 📊 Admin Dashboard
-![Dashboard](./screenshots/ad.jpg)
+![AdminDashboard](./screenshorts/ad.jpg)
 
-### 📊 User Dashboard
-![Dashboard](./screenshots/dashboard.jpg)
+### 👤 User Dashboard
+![Dashboard](./screenshorts/Dashboard.jpg)
 
 ### 💳 Payment Interface
-![Payment](./screenshots/payment.jpg)
+![Payment](./screenshorts/payment.jpg)
 
-🌐 Live Demo
-lecelestebd.web.app
+
+
+[🌐 Live Demo](https://lecelestebd.web.app)
+
 
 
 
